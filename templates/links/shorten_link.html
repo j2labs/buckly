@@ -1,0 +1,14 @@
+{% extends "site_base.html" %}
+{% block site_body %}
+
+<div id="login_fields">
+  <form action="/" method="post">
+    <table class="forms">
+      <tr><td>URL</td><td><input type="text" name="url" value="{{ url }}" /></td></tr>
+      <tr><td class="buttons"><input type="submit" /></td></tr>
+    </table>
+  </form>
+</div>
+
+{% endblock %}
+
