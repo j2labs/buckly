@@ -18,12 +18,9 @@ from shorten import BaseConverter
 shortener = BaseConverter()
 
 class BaseHandler(WebMessageHandler):
-    """This Mixin provides a `get_current_user` implementation that
-    validates auth against our hardcoded user: `demo_user`
+    """We don't have to override anything for this simple example!
     """
-    def prepare(self):
-        self.current_time = int(time.time() * 1000)
-
+    
 
 ###
 ### Application Handlers
@@ -42,6 +39,9 @@ class ShortenLinkHandler(BaseHandler, Jinja2Rendering):
         shortening request.
         """
         url = self.get_argument('url', None) # default to None
+
+        if not url.startswith('http'):
+            url = 'http://%s' % (url)
         
         id_counter = gen_next_shortid(self.db_conn)
         short_id = shortener.from_decimal(id_counter)
