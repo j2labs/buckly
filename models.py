@@ -3,7 +3,7 @@ from dictshield.fields import (StringField,
                                IntField,
                                URLField)
 
-from dictshield.fields import ObjectIdField
+from dictshield.fields.mongo import ObjectIdField
 
 from brubeck.timekeeping import MillisecondField
 
@@ -22,6 +22,9 @@ class ShortLink(Document):
     created_at = MillisecondField()
     updated_at = MillisecondField()
     dereferences = IntField(default=0)
+
+    class Meta:
+        id_field = ObjectIdField
 
     def __unicode__(self):
         return u'<shortlink: %s>' % (self.short_id)
