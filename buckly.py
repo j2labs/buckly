@@ -17,8 +17,10 @@ from queries import init_db_conn
 ### Configuration
 ###
 
+
 # Instantiate database connection
 db_conn = init_db_conn()
+
 
 # Routing config
 handler_tuples = [
@@ -27,9 +29,10 @@ handler_tuples = [
     (r'^/$', ShortenLinkHandler),
 ]
 
+
 # Application config
 config = {
-    'mongrel2_pair': ('ipc://sendsock', 'ipc://recvsock'),
+    'mongrel2_pair': ('tcp://127.0.0.1:9999', 'tcp://127.0.0.1:9998'),
     'handler_tuples': handler_tuples,
     'template_loader': load_jinja2_env('./templates'),
     'db_conn': db_conn,
