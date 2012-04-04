@@ -38,7 +38,7 @@ HTTP 302 to redirect a browser to the expanded URL.
 There is also a very simple API. It just implements HTTP GET and returns the 
 expanded URL.
 
-Check out the [Todo](https://github.com/j2labs/todo) project for a better
-experience building APIs.
+Check out the [Todos](https://github.com/j2labs/todos) project for a better
+experience building APIs. *Uses backbone.js too!*
 
 ![Simple API example](https://github.com/j2labs/buckly/raw/master/screenshots/4.png)
