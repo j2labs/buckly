@@ -52,7 +52,8 @@ class ShortenLinkHandler(BaseHandler, Jinja2Rendering):
                        short_id=short_id)
         
         save_shortlink(self.db_conn, sl)
-        context = {'shortlink': 'http://localhost:6767/%s' % short_id}
+        host = self.message.headers['host']
+        context = {'shortlink': 'http://%s/%s' % (host, short_id)}
         
         return self.render_template('links/success.html', **context)
 
